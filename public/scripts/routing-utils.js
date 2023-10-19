@@ -1,4 +1,5 @@
 import { home_elements } from "./pages/home.js"
+import { posts_elements } from "./pages/posts.js";
 
 /**
  * @returns {HTMLElement} The page view.
@@ -30,12 +31,21 @@ export function routeCurrentPath () {
     clearPageView();
 
     const path = document.location.pathname;
-    const segments = path.split("/");
+    let segments = path.split("/");
 
-    if (segments[1] == "") {
+    if (segments[1] == "home") {
+
         getPageView().innerHTML = home_elements;
+
+    } else if (segments[1] == "posts") {
+
+        getPageView().innerHTML = posts_elements;
+
     } else {
-        getPageView().innerHTML = "oops!";
+
+        replacePath("/home");
+        getPageView().innerHTML = home_elements;
+
     }
 }
 
