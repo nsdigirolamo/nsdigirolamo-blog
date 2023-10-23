@@ -6,14 +6,17 @@ import { getPageView } from "../routing-utils.js";
  */
 export function loadHomeElements (path_segments) {
     getPageView().innerHTML = `
-        <h1>Nicholas DiGirolamo</h1>
-        <ul id="socials">
-            <li><a class="nav-element" href="mailto:nsdigirolamo@gmail.com">Email</a></li>
-            <li><a class="nav-element" href="https://github.com/nsdigirolamo">Github</a></li>
-            <li><a class="nav-element" href="https://linkedin.com/in/nsdigirolamo/">LinkedIn</a></li>
-            <li><a class="nav-element" href="https://hachyderm.io/@nsdigirolamo">Mastodon</a></li>
-            <li><a class="nav-element" href="https://reddit.com/user/nsdigirolamo/">Reddit</a></li>
-            <li><a class="nav-element" href="https://youtube.com/@nsdigirolamo">YouTube</a></li>
-        </ul>
+        <div id="home">
+            <h1>Nicholas DiGirolamo</h1>
+            <ul id="socials">
+                <li id="blog"><a href="/posts">Blog</a></li>
+                <li><a class="nav-element" href="mailto:nsdigirolamo@gmail.com">Email</a></li>
+                <li><a class="nav-element" href="https://github.com/nsdigirolamo">Github</a></li>
+                <li><a class="nav-element" href="https://linkedin.com/in/nsdigirolamo/">LinkedIn</a></li>
+                <li><a class="nav-element" href="https://hachyderm.io/@nsdigirolamo">Mastodon</a></li>
+                <li><a class="nav-element" href="https://reddit.com/user/nsdigirolamo/">Reddit</a></li>
+                <li><a class="nav-element" href="https://youtube.com/@nsdigirolamo">YouTube</a></li>
+            </ul>
+        </div>
     `;
 }

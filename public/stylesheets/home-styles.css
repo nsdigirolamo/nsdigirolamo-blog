@@ -1,0 +1,30 @@
+a {
+    color: rgba(0, 0, 0, 1);
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 25px;
+}
+
+#home {
+    padding: 20vh 0 0 20vw;
+}
+
+#home ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#socials li {
+	font-family: sans-serif;
+    margin: 0 0 10px 0;
+}
+
+#socials li a:hover {
+    text-decoration: none;
+}
+
+#blog {
+    padding: 0 0 20px 0;
+}
