@@ -9,7 +9,8 @@ export function loadHomeElements (path_segments) {
         <div id="home">
             <h1>Nicholas DiGirolamo</h1>
             <ul>
-                <li><a href="/posts">Blog</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/projects">Projects</a></li>
                 <li><a class="nav-element" href="mailto:nsdigirolamo@gmail.com">Email</a></li>
                 <li><a class="nav-element" href="https://github.com/nsdigirolamo">Github</a></li>
                 <li><a class="nav-element" href="https://linkedin.com/in/nsdigirolamo/">LinkedIn</a></li>
