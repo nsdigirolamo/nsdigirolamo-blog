@@ -1,9 +1,11 @@
 import { loadHomeElements } from "./pages/home.js"
 import { loadPostsElements } from "./pages/posts.js";
+import { loadProjectsElements } from "./pages/projects.js";
 
 const pathMap = new Map([
     ["home", loadHomeElements],
-    ["posts", loadPostsElements]
+    ["posts", loadPostsElements],
+    ["projects", loadProjectsElements]
 ]);
 
 /**
