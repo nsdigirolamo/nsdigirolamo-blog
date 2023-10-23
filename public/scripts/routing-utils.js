@@ -1,5 +1,10 @@
-import { home_elements } from "./pages/home.js"
-import { posts_elements } from "./pages/posts.js";
+import { loadHomeElements } from "./pages/home.js"
+import { loadPostsElements } from "./pages/posts.js";
+
+const pathMap = new Map([
+    ["home", loadHomeElements],
+    ["posts", loadPostsElements]
+]);
 
 /**
  * @returns {HTMLElement} The page view.
@@ -30,23 +35,19 @@ export function routeCurrentPath () {
 
     clearPageView();
 
-    const path = document.location.pathname;
-    let segments = path.split("/");
+    const path_segments = document.location.pathname.split("/");
+    const first_path = path_segments[1];
 
-    if (segments[1] == "home") {
-
-        getPageView().innerHTML = home_elements;
-
-    } else if (segments[1] == "posts") {
-
-        getPageView().innerHTML = posts_elements;
-
-    } else {
-
+    let loadFunction = (path_segments) => {
         replacePath("/home");
-        getPageView().innerHTML = home_elements;
-
+        loadHomeElements();
     }
+
+    if (pathMap.has(first_path)) {
+        loadFunction = pathMap.get(first_path);
+    }
+
+    loadFunction(path_segments);
 }
 
 addEventListener("DOMContentLoaded", routeCurrentPath);
