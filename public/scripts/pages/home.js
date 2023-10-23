@@ -8,15 +8,24 @@ export function loadHomeElements (path_segments) {
     getPageView().innerHTML = `
         <div id="home">
             <h1>Nicholas DiGirolamo</h1>
-            <ul id="socials">
-                <li id="blog"><a href="/posts">Blog</a></li>
+            <ul>
+                <li><a href="/posts">Blog</a></li>
                 <li><a class="nav-element" href="mailto:nsdigirolamo@gmail.com">Email</a></li>
                 <li><a class="nav-element" href="https://github.com/nsdigirolamo">Github</a></li>
                 <li><a class="nav-element" href="https://linkedin.com/in/nsdigirolamo/">LinkedIn</a></li>
-                <li><a class="nav-element" href="https://hachyderm.io/@nsdigirolamo">Mastodon</a></li>
-                <li><a class="nav-element" href="https://reddit.com/user/nsdigirolamo/">Reddit</a></li>
-                <li><a class="nav-element" href="https://youtube.com/@nsdigirolamo">YouTube</a></li>
             </ul>
+            <article id="about">
+                <p>
+                    Welcome to my website. I'm a Computer Science undergrad at the University of Delaware 
+                    with a concentration in Systems and Networks. I'm also currently looking for full-time 
+                    software engineering positions.
+                </p>
+                <p>
+                    I'm going to be using this site as a place to show off my personal
+                    projects, to hold research for potential future projects, and to archive
+                    cool things I find on the internet.
+                </p>
+            </article>
         </div>
     `;
 }
