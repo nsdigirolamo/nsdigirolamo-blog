@@ -31,6 +31,15 @@ export const replacePath = (path) => history.replaceState(path, "", path);
 export const clearPageView = () => getPageView().innerHTML = "";
 
 /**
+ * Sets the navbar's visibility.
+ * @param {boolean} is_visible 
+ */
+function setNavbarVisibility (is_visible) {
+    const visibility = is_visible ? "visible" : "hidden"; 
+    document.getElementById("navbar").style.visibility = visibility; 
+};
+
+/**
  * Handles loading elements to the view depending on the current URL path.
  */
 export function routeCurrentPath () {
@@ -48,6 +57,8 @@ export function routeCurrentPath () {
     if (pathMap.has(first_path)) {
         loadFunction = pathMap.get(first_path);
     }
+
+    setNavbarVisibility(first_path != "home");
 
     loadFunction(path_segments);
 }

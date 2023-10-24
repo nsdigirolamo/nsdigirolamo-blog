@@ -11,6 +11,10 @@ h1 {
     font-size: 24pt;
 }
 
+header {
+    padding: 2vh 20vw 20vh 20vw;
+}
+
 li {
     display: inline;
 	font-family: serif;
@@ -26,6 +30,10 @@ ul {
     padding: 0;
 }
 
+#navbar {
+    visibility: hidden;
+}
+
 #page-view {
-    padding: 20vh 20vw 20vh 20vw;
+    padding: 0 20vw 0 20vw;
 }
