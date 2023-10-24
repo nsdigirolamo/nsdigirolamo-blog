@@ -1,7 +1,7 @@
 import { getPageView } from "../routing-utils.js";
 
 /**
- * Loads the elements required for the posts page.
+ * Loads the elements required for the blog page.
  * @param {string[]} path_segments The page's path segments
  */
 export function loadBlogElements (path_segments) {
