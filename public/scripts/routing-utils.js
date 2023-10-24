@@ -42,7 +42,7 @@ function setNavbarVisibility (is_visible) {
 /**
  * Handles loading elements to the view depending on the current URL path.
  */
-export function routeCurrentPath () {
+function routeCurrentPath () {
 
     clearPageView();
 
