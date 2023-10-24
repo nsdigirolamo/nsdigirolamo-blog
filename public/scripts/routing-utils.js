@@ -49,18 +49,18 @@ function routeCurrentPath () {
     const path_segments = document.location.pathname.split("/");
     const first_path = path_segments[1];
 
-    let loadFunction = (path_segments) => {
-        replacePath("/home");
-        loadHomeElements();
-    }
-
     if (pathMap.has(first_path)) {
-        loadFunction = pathMap.get(first_path);
+
+        const loadFunction = pathMap.get(first_path);
+        setNavbarVisibility(first_path != "home");
+        loadFunction(path_segments);
+
+    } else {
+
+        replacePath("/home");
+        routeCurrentPath();
+
     }
-
-    setNavbarVisibility(first_path != "home");
-
-    loadFunction(path_segments);
 }
 
 addEventListener("DOMContentLoaded", routeCurrentPath);
