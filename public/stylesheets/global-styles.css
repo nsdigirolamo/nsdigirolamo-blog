@@ -30,6 +30,17 @@ ul {
     padding: 0;
 }
 
+.card {
+    border-style: solid;
+    margin: 2vh 0 2vh 0;
+    padding: 2vh 2vw 2vh 2vw;
+}
+
+.card:hover {
+    cursor: pointer;
+    color: grey;
+}
+
 #navbar {
     visibility: hidden;
 }

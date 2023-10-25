@@ -16,6 +16,9 @@ export function loadProjectsElements (path_segments) {
     getPosts("/project-posts").catch(e => console.log(e));
 }
 
+/** @returns The project list div. */
+const getProjectList = () => document.getElementById("project-list");
+
 /**
  * Converts markdown text to an HTML article.
  * @param {string} markdown_text 
@@ -42,7 +45,7 @@ function getCardFromMarkdown (markdown_text) {
     const title = lines[0].slice(1, lines[0].length).trim();
 
     const card = document.createElement("div");
-    card.class = "card";
+    card.className = "card";
     card.textContent = title;
 
     return card;
@@ -69,7 +72,7 @@ export async function getPosts(url) {
         const text = await blob.text()
             .catch(e => { throw new Error(e) });
 
-        getPageView().appendChild(getCardFromMarkdown(text));
+        getProjectList().appendChild(getCardFromMarkdown(text));
     }
 
     return texts;
