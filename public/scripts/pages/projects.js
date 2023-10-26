@@ -54,11 +54,8 @@ function getCardFromMarkdown (markdown_text) {
 /**
  * Retrieves posts from storage.
  * @param {string} url The URL from which to retrieve the posts.
- * @returns {Promise<string[]>}
  */
-export async function getPosts(url) {
-
-    let texts = [];
+async function getPosts(url) {
 
     /** @type {ListResult} */
     const storage_references = await list(ref(storage, url))
@@ -70,6 +67,4 @@ export async function getPosts(url) {
             .then(text_result => getProjectList().appendChild(getCardFromMarkdown(text_result)))
             .catch(e => { throw new Error(e) });
     }
-
-    return texts;
 }
