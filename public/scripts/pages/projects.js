@@ -65,14 +65,10 @@ export async function getPosts(url) {
         .catch(e => { throw new Error(e) });
 
     for (const ref of storage_references.items) {
-
-        const blob = await getBlob(ref)
+        getBlob(ref)
+            .then(blob_result => blob_result.text())
+            .then(text_result => getProjectList().appendChild(getCardFromMarkdown(text_result)))
             .catch(e => { throw new Error(e) });
-
-        const text = await blob.text()
-            .catch(e => { throw new Error(e) });
-
-        getProjectList().appendChild(getCardFromMarkdown(text));
     }
 
     return texts;
