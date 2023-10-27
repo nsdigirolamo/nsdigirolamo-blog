@@ -3,7 +3,16 @@ a {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     font-size: 12pt;
+    height: 100vh;
+    padding: 0 25vw 0 25vw;
+}
+
+footer {
+    margin: 10vh 0 5vh 0;
+    text-align: center;
 }
 
 h1 {
@@ -12,7 +21,7 @@ h1 {
 }
 
 header {
-    padding: 2vh 20vw 2vh 20vw;
+    padding: 2vh 0 2vh 0;
 }
 
 li {
@@ -35,5 +44,6 @@ ul {
 }
 
 #page-view {
-    padding: 10vh 20vw 10vh 20vw;
+    flex: 1 0 auto;
+    padding: 10vh 0 10vh 0;
 }
