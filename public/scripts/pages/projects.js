@@ -60,38 +60,3 @@ function getArticleFromMarkdown (markdown_text) {
 
     return article
 }
-
-/**
- * Converts markdown text to an HTML card. Assumes the first line starts with a single '#' character.
- * @param {string} markdown_text 
- * @returns {HTMLElement} A div containing information about the HTML text.
- */
-function getCardFromMarkdown (markdown_text) {
-
-    const lines = markdown_text.split("\n");
-    const title = lines[0].slice(1, lines[0].length).trim();
-
-    const card = document.createElement("div");
-    card.className = "card";
-    card.textContent = title;
-
-    return card;
-}
-
-/**
- * Retrieves posts from storage.
- * @param {string} url The URL from which to retrieve the posts.
- */
-async function getPosts(url) {
-
-    /** @type {ListResult} */
-    const storage_references = await list(ref(storage, url))
-        .catch(e => { throw new Error(e) });
-
-    for (const ref of storage_references.items) {
-        getBlob(ref)
-            .then(blob_result => blob_result.text())
-            .then(text_result => getProjectList().appendChild(getCardFromMarkdown(text_result)))
-            .catch(e => { throw new Error(e) });
-    }
-}
