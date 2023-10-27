@@ -1,11 +1,13 @@
 import { loadHomeElements } from "./pages/home.js"
 import { loadBlogElements } from "./pages/blog.js";
 import { loadProjectsElements } from "./pages/projects.js";
+import { loadTextElements } from "./pages/texts.js";
 
 const pathMap = new Map([
-    ["home", loadHomeElements],
     ["blog", loadBlogElements],
-    ["projects", loadProjectsElements]
+    ["home", loadHomeElements],
+    ["projects", loadProjectsElements],
+    ["texts", loadTextElements]
 ]);
 
 /**
@@ -17,7 +19,7 @@ export const getPageView = () => document.getElementById("page-view");
  * Pushes the given URL path to the user's history and changes the URL to the given path.
  * @param {string} path
  */
-const pushPath = (path) => history.pushState(path, "", path);
+export const pushPath = (path) => history.pushState(path, "", path);
 
 /**
  * Changes the URL to the given path without pushing to the user's history.
@@ -42,7 +44,7 @@ function setNavbarVisibility (is_visible) {
 /**
  * Handles loading elements to the view depending on the current URL path.
  */
-function routeCurrentPath () {
+export function routeCurrentPath () {
 
     clearPageView();
 
