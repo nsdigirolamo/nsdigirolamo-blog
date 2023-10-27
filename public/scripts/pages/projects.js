@@ -1,5 +1,5 @@
 import { CardInfo, getAllProjectCardInfoFromDatabase } from "../firebase-utils.js";
-import { getPageView } from "../routing-utils.js";
+import { getPageView, pushPath, routeCurrentPath } from "../routing-utils.js";
 
 /**
  * Loads the elements required for the projects page.
@@ -43,20 +43,9 @@ function constructCardFromInfo (card_info) {
         <h2>${new Date(card_info.date_published).toDateString()}</h2>
         <p>${card_info.summary}</p>
     `;
+    card.addEventListener("click", () => {
+        pushPath(`/texts/projects/${card_info.id}`);
+        routeCurrentPath();
+    });
     return card;
-}
-
-/**
- * Converts markdown text to an HTML article.
- * @param {string} markdown_text 
- * @returns {HTMLElement} An article containing the converted markdown text.
- */
-function getArticleFromMarkdown (markdown_text) {
-
-    const converter = new showdown.Converter();
-
-    const article = document.createElement("article");
-    article.innerHTML = converter.makeHtml(markdown_text);
-
-    return article
 }
