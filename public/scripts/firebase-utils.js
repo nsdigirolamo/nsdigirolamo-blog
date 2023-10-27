@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-import { get, getDatabase, ref } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
-import { getBlob, getStorage } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
+import { get, getDatabase, ref as databaseRef } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+import { getBlob, getStorage, ref as storageRef } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBt3H6-xJoSpjTFR3yPlo77fixKO5zrwZs",
@@ -44,7 +44,7 @@ export class CardInfo {
  * @returns {Promise<CardInfo[]>}
  */
 export async function getAllProjectCardInfoFromDatabase () {
-    const db_ref = ref(database, "/projects");
+    const db_ref = databaseRef(database, "/projects");
     const data_snapshot = await get(db_ref).catch(e => { throw new Error(e) });
     const card_infos = Object.values(data_snapshot.val());
     return card_infos;
@@ -53,9 +53,10 @@ export async function getAllProjectCardInfoFromDatabase () {
 /**
  * Retreives the contents of a text file at the given url.
  * @param {string} url 
+ * @returns {Promise<string>}
  */
 export async function getTextFromStorage (url) {
-    const storage_ref = ref(storage, url);
+    const storage_ref = storageRef(storage, url);
     const blob = await getBlob(storage_ref)
         .catch(e => { throw new Error(e) });
     const text = await blob.text()
